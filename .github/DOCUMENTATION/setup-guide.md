@@ -32,41 +32,33 @@ This documentation system is available as a GitHub template. Instead of manual s
 
 2. **Automatic Setup**
    After creating your repository from the template, GitHub Actions will automatically:
-   - Create a setup issue in your new repository with detailed next steps
+   - Install Node.js dependencies
+   - Replace all template variables with your repository information
+   - Remove example content and template instruction files
+   - Create a personalized setup issue with next steps
    - Remove the initialization workflow (it only runs once)
 
-3. **Manual Setup (from the created issue)**
-   ```bash
-   # Clone your new repository
-   git clone https://github.com/YOUR-ORG/your-new-repo.git
-   cd your-new-repo
+3. **What You Get**
+   Your new repository will be immediately ready with:
+   - Personalized README.md with your repository name
+   - All placeholder variables replaced
+   - Working GitHub Actions workflows for validation
+   - Clean directory structure ready for your content
+   - Setup issue with customization guidance
 
-   # Install dependencies
-   npm install
+### Automatic Variable Replacement
 
-   # Optionally customize the template
-   npm run init
+The GitHub Actions workflow automatically replaces template variables using your repository information:
 
-   # Delete the template instructions file
-   rm TEMPLATE_INSTRUCTIONS.md
+| Variable | Replaced With | Example |
+|----------|---------------|---------|
+| `{{COMPANY_NAME}}` | Repository name (formatted) | "My Docs" (from "my-docs") |
+| `{{REPO_NAME}}` | Repository name | "my-docs" |
+| `{{GITHUB_ORG}}` | Repository owner | "your-org" |
+| `{{DOCS_EMAIL}}` | Default placeholder | "docs@example.com" |
+| `{{SLACK_CHANNEL}}` | Default placeholder | "#docs-help" |
 
-   # Commit your changes
-   git add .
-   git commit -m "Initialize documentation repository"
-   git push origin main
-   ```
-
-### Template Customization
-
-The `npm run init` script will personalize the template by replacing placeholder variables:
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{COMPANY_NAME}}` | Your organization name | "Acme Corp" |
-| `{{REPO_NAME}}` | Repository name | "acme-docs" |
-| `{{GITHUB_ORG}}` | GitHub organization | "acme-corp" |
-| `{{DOCS_EMAIL}}` | Documentation team email | "docs@acme.com" |
-| `{{SLACK_CHANNEL}}` | Support Slack channel | "#docs-help" |
+**Manual Customization**: If you need different values, you can manually edit these in your personalized repository or run `npm run init` for interactive customization.
 
 ## Included Configuration Files
 
@@ -1072,11 +1064,11 @@ If you need different visibility:
 ## Rollout Plan
 
 ### Phase 1: Template Setup (Day 1)
-- [ ] Use GitHub template to create repository
-- [ ] Run `npm run init` to customize template
+- [ ] Use GitHub template to create repository (automatic setup begins)
+- [ ] Wait for GitHub Actions to complete initialization (~2-3 minutes)
+- [ ] Review the setup issue created with personalized next steps
 - [ ] Configure GitHub repository settings and branch protection
-- [ ] Review and customize included configurations
-- [ ] Delete TEMPLATE_INSTRUCTIONS.md file
+- [ ] Review and customize any auto-generated configurations if needed
 
 ### Phase 2: Content Setup (Week 1)
 - [ ] Review included example documents
