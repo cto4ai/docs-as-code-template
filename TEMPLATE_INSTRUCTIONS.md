@@ -2,22 +2,21 @@
 
 ## Quick Start
 
-1. Click "Use this template" button on GitHub
-2. Name your new repository
-3. Clone locally:
+1. **Create Repository**: Click "Use this template" button on GitHub
+2. **Name Repository**: Choose a descriptive name for your documentation repository
+3. **Automatic Setup**: GitHub Actions will automatically:
+   - Replace template variables with your repository information
+   - Remove example content and this instruction file
+   - Install dependencies and set up the repository
+   - Create a setup issue with next steps
+
+4. **Manual Setup** (only if automatic setup fails):
    ```bash
    git clone https://github.com/YOUR-ORG/your-new-repo.git
    cd your-new-repo
-   ```
-4. Install dependencies:
-   ```bash
    npm install
-   ```
-5. Run initialization:
-   ```bash
    npm run init
    ```
-6. Delete this file after initialization
 
 ## What's Included
 
@@ -58,26 +57,24 @@ The `npm run init` script will:
 | `{{DOCS_EMAIL}}` | Documentation team email | "docs@acme.com" |
 | `{{SLACK_CHANNEL}}` | Support Slack channel | "#docs-help" |
 
-## Post-Initialization Steps
+## Post-Setup Steps
 
-After running `npm run init`:
+After the automatic setup completes, you'll receive a GitHub issue with next steps:
 
-1. **Review and Commit**
-   ```bash
-   git add .
-   git commit -m "Initialize documentation repository"
-   git push origin main
-   ```
+1. **Configure GitHub Settings**
+   - Set up branch protection rules in Settings → Branches
+   - Add team members and permissions in Settings → Manage access
+   - Enable GitHub Pages for publishing (optional)
 
-2. **Configure GitHub**
-   - Set up branch protection rules
-   - Configure GitHub Pages (optional)
-   - Add team members and permissions
+2. **Start Documenting**
+   - Add your actual documentation in the `docs/` folder
+   - Use the templates in `docs/templates/` for consistency
+   - Follow the guidelines in the setup guide
 
-3. **Start Documenting**
-   - Remove example documents
-   - Add your actual documentation
-   - Customize templates as needed
+3. **Optional Customization**
+   - Review and customize README.md if needed
+   - Modify document templates for your organization
+   - Set up additional GitHub Actions workflows
 
 ## Directory Structure
 
