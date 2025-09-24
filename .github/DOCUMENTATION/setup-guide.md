@@ -6,14 +6,14 @@
 
 Before using the template:
 - [ ] Decide on repository name and location in your organization
-- [ ] Install Git locally
-- [ ] Install Node.js v20+
-- [ ] Install Git LFS (`brew install git-lfs` or download)
-- [ ] Ensure GitHub account and organization access
-- [ ] Generate GitHub Personal Access Token (for Git operations)
-- [ ] Install VS Code or Obsidian (for editing)
+- [ ] Ensure GitHub account and organization access with repository creation permissions
+- [ ] Install Git locally (for development and contributions)
+- [ ] Install Node.js v20+ (for running validation tools and scripts)
+- [ ] Install VS Code or Obsidian (for content editing)
 - [ ] Identify initial documents to migrate to the new system
 - [ ] Schedule team training session for docs-as-code approach
+
+**Note:** Git LFS is pre-configured in the template. You only need to install `git lfs` locally if you plan to add binary files (images, PDFs) to the repository.
 
 ## Using the GitHub Template
 
@@ -30,7 +30,12 @@ This documentation system is available as a GitHub template. Instead of manual s
      - **Product-specific**: `product-name-docs`, `api-documentation`
      - **Internal**: `internal-docs`, `company-handbook`, `team-playbook`
 
-2. **Clone and Initialize**
+2. **Automatic Setup**
+   After creating your repository from the template, GitHub Actions will automatically:
+   - Create a setup issue in your new repository with detailed next steps
+   - Remove the initialization workflow (it only runs once)
+
+3. **Manual Setup (from the created issue)**
    ```bash
    # Clone your new repository
    git clone https://github.com/YOUR-ORG/your-new-repo.git
@@ -39,15 +44,15 @@ This documentation system is available as a GitHub template. Instead of manual s
    # Install dependencies
    npm install
 
-   # Initialize and customize the template
+   # Optionally customize the template
    npm run init
 
    # Delete the template instructions file
    rm TEMPLATE_INSTRUCTIONS.md
 
-   # Commit your customizations
+   # Commit your changes
    git add .
-   git commit -m "Initialize documentation repository from template"
+   git commit -m "Initialize documentation repository"
    git push origin main
    ```
 
