@@ -4,61 +4,68 @@
 
 ## Pre-Setup Checklist
 
-Before creating your repository:
-- [ ] Decide on repository name and location
+Before using the template:
+- [ ] Decide on repository name and location in your organization
 - [ ] Install Git locally
 - [ ] Install Node.js v20+
 - [ ] Install Git LFS (`brew install git-lfs` or download)
-- [ ] Create GitHub account and organization (if needed)
-- [ ] Generate GitHub Personal Access Token
-- [ ] Install VS Code or Obsidian
-- [ ] Identify initial documents to migrate
-- [ ] Schedule team training session
+- [ ] Ensure GitHub account and organization access
+- [ ] Generate GitHub Personal Access Token (for Git operations)
+- [ ] Install VS Code or Obsidian (for editing)
+- [ ] Identify initial documents to migrate to the new system
+- [ ] Schedule team training session for docs-as-code approach
 
-## Repository Initialization
+## Using the GitHub Template
 
-### Naming Convention
+### Creating Your Repository
 
-Choose a clear, descriptive name:
-- **Standalone docs**: `docs`, `documentation`, `knowledge-base`
-- **Product-specific**: `product-name-docs`, `api-documentation`
-- **Internal**: `internal-docs`, `company-handbook`, `team-playbook`
+This documentation system is available as a GitHub template. Instead of manual setup:
 
-### Initial Setup
+1. **Use the Template**
+   - Go to the [docs-as-code-template](https://github.com/YOUR-ORG/docs-as-code-template) repository
+   - Click "Use this template" button
+   - Choose "Create a new repository"
+   - Name your repository following these conventions:
+     - **Standalone docs**: `docs`, `documentation`, `knowledge-base`
+     - **Product-specific**: `product-name-docs`, `api-documentation`
+     - **Internal**: `internal-docs`, `company-handbook`, `team-playbook`
 
-```bash
-# Create and initialize repository
-mkdir company-docs
-cd company-docs
-git init
+2. **Clone and Initialize**
+   ```bash
+   # Clone your new repository
+   git clone https://github.com/YOUR-ORG/your-new-repo.git
+   cd your-new-repo
 
-# Initialize Git LFS before first commit
-git lfs install
+   # Install dependencies
+   npm install
 
-# Create initial structure
-mkdir -p docs/{policies,procedures,architecture,guides,templates}
-mkdir -p .github/{workflows,ISSUE_TEMPLATE,PULL_REQUEST_TEMPLATE,DOCUMENTATION}
-mkdir -p scripts
-mkdir -p config
+   # Initialize and customize the template
+   npm run init
 
-# Create essential files
-touch README.md
-touch CONTRIBUTING.md
-touch .gitignore
-touch .gitattributes
-touch LICENSE.md
+   # Delete the template instructions file
+   rm TEMPLATE_INSTRUCTIONS.md
 
-# Configure Git LFS
-git lfs track "*.png" "*.jpg" "*.jpeg" "*.gif"
-git lfs track "*.pdf" "*.docx" "*.xlsx" "*.pptx"  
-git lfs track "*.zip" "*.tar.gz" "*.dmg" "*.exe"
+   # Commit your customizations
+   git add .
+   git commit -m "Initialize documentation repository from template"
+   git push origin main
+   ```
 
-# Initial commit
-git add .
-git commit -m "Initial repository structure"
-```
+### Template Customization
 
-## Essential Configuration Files
+The `npm run init` script will personalize the template by replacing placeholder variables:
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `{{COMPANY_NAME}}` | Your organization name | "Acme Corp" |
+| `{{REPO_NAME}}` | Repository name | "acme-docs" |
+| `{{GITHUB_ORG}}` | GitHub organization | "acme-corp" |
+| `{{DOCS_EMAIL}}` | Documentation team email | "docs@acme.com" |
+| `{{SLACK_CHANNEL}}` | Support Slack channel | "#docs-help" |
+
+## Included Configuration Files
+
+The template includes pre-configured files that you may want to customize:
 
 ### `.gitignore`
 
@@ -229,91 +236,115 @@ updates:
       interval: "weekly"
 ```
 
-## Repository Structure
+## Template Structure
+
+The template includes this complete directory structure:
 
 ```
 .
-├── README.md                      # Repository overview and navigation
-├── CONTRIBUTING.md                # Brief contribution rules + links to guides
-├── LICENSE.md                     # License information
-├── CODE_OF_CONDUCT.md            # Community standards
-├── CHANGELOG.md                   # Document version history
-├── 
+├── README.md                      # Repository overview (customizable)
+├── CONTRIBUTING.md                # Contribution guidelines (customizable)
+├── LICENSE.md                     # MIT License (change if needed)
+├── CHANGELOG.md                   # Version history
+├── TEMPLATE_INSTRUCTIONS.md       # Delete after initialization
+├──
 ├── .github/                       # GitHub-specific configuration
-│   ├── DOCUMENTATION/            # Meta-documentation (about the repo itself)
-│   │   ├── README.md            # Index of meta-docs
+│   ├── DOCUMENTATION/            # Meta-documentation (included)
 │   │   ├── setup-guide.md       # This setup guide
-│   │   └── docs-as-code-strategy.md  # Documentation philosophy & practices
-│   ├── workflows/                # GitHub Actions
-│   │   ├── validate.yml
-│   │   ├── build.yml
-│   │   └── deploy.yml
-│   ├── ISSUE_TEMPLATE/          # Issue templates
+│   │   └── docs-as-code-strategy.md  # Documentation philosophy
+│   ├── workflows/                # GitHub Actions (pre-configured)
+│   │   ├── validate.yml         # Markdown validation
+│   │   ├── build.yml            # Document building
+│   │   └── deploy.yml           # Deployment automation
+│   ├── ISSUE_TEMPLATE/          # Issue templates (customizable)
 │   │   ├── bug-report.md
 │   │   ├── doc-request.md
 │   │   └── doc-fix.md
-│   ├── PULL_REQUEST_TEMPLATE/   # PR templates
+│   ├── PULL_REQUEST_TEMPLATE/   # PR templates (customizable)
 │   │   └── pull_request_template.md
 │   └── dependabot.yml           # Dependency updates
 │
-├── docs/                          # All actual documentation content
-│   ├── index.md                  # Documentation home page
-│   ├── getting-started.md        # Onboarding guide
+├── docs/                          # Documentation content structure
+│   ├── examples/                 # Example documents (delete after review)
+│   │   ├── policy-example.md
+│   │   └── procedure-example.md
 │   │
-│   ├── policies/                 # Company policies
-│   │   ├── _index.md            # Policy section overview
-│   │   ├── code-of-conduct.md
-│   │   ├── security.md
-│   │   └── data-governance.md
-│   │
-│   ├── procedures/               # Standard operating procedures
-│   │   ├── _index.md
-│   │   ├── incident-response.md
-│   │   └── release-process.md
-│   │
-│   ├── architecture/             # Technical documentation
-│   │   ├── _index.md
-│   │   ├── system-overview.md
-│   │   ├── api-design.md
-│   │   └── diagrams/            # Mermaid source files
-│   │
-│   ├── guides/                   # How-to guides
-│   │   ├── _index.md
-│   │   ├── developer-setup.md
-│   │   └── troubleshooting.md
-│   │
-│   ├── references/               # Reference materials
-│   │   ├── glossary.md
-│   │   ├── api-reference.md
-│   │   └── cli-reference.md
-│   │
-│   ├── templates/                # Document templates
+│   ├── templates/                # Document templates (customize as needed)
 │   │   ├── policy-template.md
-│   │   ├── runbook-template.md
-│   │   └── rfc-template.md
+│   │   ├── procedure-template.md
+│   │   └── architecture-template.md
 │   │
-│   └── assets/                   # Shared assets
-│       ├── images/              # Binary images (use sparingly)
-│       └── styles/              # CSS for HTML output
+│   └── assets/                   # Shared assets directory
+│       └── images/              # For binary images (use sparingly)
 │
-├── config/                       # Configuration files
-│   ├── mkdocs.yml               # MkDocs configuration
-│   ├── pandoc/                  # Pandoc templates
-│   │   ├── template.latex
-│   │   └── reference.docx
-│   └── vale/                    # Vale style guide
-│       └── .vale.ini
+├── config/                       # Tool configurations (included)
+│   ├── .markdownlint.json       # Markdown linting rules
+│   ├── cspell.json              # Spell checking configuration
+│   └── .gitattributes           # Git LFS configuration
 │
-├── scripts/                      # Build and utility scripts
-│   ├── build-pdf.js
-│   ├── validate-links.sh
-│   ├── generate-toc.py
-│   └── migrate-docs.sh
+├── scripts/                      # Utility scripts (included)
+│   └── init.js                  # Template initialization script
 │
-└── tests/                        # Documentation tests
-    ├── link-check.js
-    └── metadata-validate.py
+└── package.json                  # Node.js dependencies and scripts
 ```
+
+### What You Need to Add
+
+After template initialization, you'll typically add:
+
+- **Content directories**: `docs/policies/`, `docs/procedures/`, `docs/architecture/`, etc.
+- **Your actual documentation**: Replace examples with real content
+- **Custom templates**: Modify included templates for your organization
+- **Additional workflows**: Customize GitHub Actions as needed
+
+## Post-Template Setup Steps
+
+### 1. Customize Configuration Files
+
+The template includes pre-configured files that you should review and customize:
+
+**Update package.json:**
+- Change the `name`, `description`, and other metadata fields
+- Add any additional dependencies your team needs
+
+**Review .markdownlint.json:**
+- Adjust markdown linting rules to match your team's style preferences
+- The defaults are sensible for most teams
+
+**Customize cspell.json:**
+- Add your organization's terminology to the `words` array
+- Include product names, technologies, and domain-specific terms
+
+### 2. Set Up GitHub Repository Settings
+
+After pushing your customized template:
+
+**Branch Protection:**
+- Enable branch protection on `main` branch
+- Require pull request reviews (recommended: 1-2 reviewers)
+- Require status checks to pass
+- Include administrators in restrictions
+
+**Team Permissions:**
+- Add documentation writers with `Write` access
+- Add reviewers with `Triage` access for issue management
+- Set up CODEOWNERS file for automated review assignments
+
+**GitHub Pages (Optional):**
+- Enable GitHub Pages in repository settings
+- Set source to GitHub Actions
+- Your site will be available at `https://YOUR-ORG.github.io/REPO-NAME`
+
+### 3. Content Migration Strategy
+
+If migrating existing documentation:
+
+1. **Export from existing systems** (Confluence, SharePoint, etc.)
+2. **Convert to Markdown** using pandoc or manual conversion
+3. **Replace static diagrams** with Mermaid where possible
+4. **Test all internal links** and update paths as needed
+5. **Set up redirects** from old locations to new ones
+6. **Archive legacy documentation** after verification
 
 ## Repository README Template
 
@@ -957,27 +988,30 @@ git commit -m "Migrate documentation from Confluence"
 
 ### Purpose
 
-Meta-documentation explains how to use and maintain the documentation repository itself. It's distinct from the actual documentation content and should be clearly separated but easily discoverable.
+Meta-documentation explains how to use and maintain the documentation repository itself. In this template, meta-documentation is pre-included and clearly separated from actual documentation content.
 
-### Placement
+### Template Includes Meta-Documentation
 
-Store meta-documentation in `.github/DOCUMENTATION/`:
+The template automatically includes meta-documentation in `.github/DOCUMENTATION/`:
 
 ```
 .github/
 └── DOCUMENTATION/
-    ├── README.md                    # Index and overview of meta-docs
-    ├── setup-guide.md              # This repository setup guide
-    └── docs-as-code-strategy.md   # Documentation philosophy and practices
+    ├── setup-guide.md              # This repository setup guide (included)
+    └── docs-as-code-strategy.md   # Documentation philosophy and practices (included)
 ```
 
-### Why `.github/DOCUMENTATION/`?
+**You may optionally add:**
+- `README.md` - Index and overview of your customized meta-docs
+- Additional guides specific to your organization's needs
+
+### Why This Location Works Well
 
 1. **Clear separation** - Meta-docs don't mix with actual content in `/docs`
 2. **GitHub integration** - `.github` folders render nicely on GitHub
 3. **Developer convention** - Developers expect repo configuration in `.github`
-4. **Protection** - Less likely to be accidentally modified during content updates
-5. **Portability** - Can be symlinked or submoduled across multiple repos
+4. **Template consistency** - All template-based repos use the same structure
+5. **Protection** - Less likely to be accidentally modified during content updates
 
 ### Alternative Approaches
 
@@ -1032,30 +1066,40 @@ If you need different visibility:
 
 ## Rollout Plan
 
-### Phase 1: Setup (Week 1)
-- [ ] Create repository
-- [ ] Copy meta-documentation to `.github/DOCUMENTATION/`
-- [ ] Configure settings and branch protection
-- [ ] Set up CI/CD pipelines
-- [ ] Create templates
+### Phase 1: Template Setup (Day 1)
+- [ ] Use GitHub template to create repository
+- [ ] Run `npm run init` to customize template
+- [ ] Configure GitHub repository settings and branch protection
+- [ ] Review and customize included configurations
+- [ ] Delete TEMPLATE_INSTRUCTIONS.md file
 
-### Phase 2: Migration (Weeks 2-3)
-- [ ] Migrate high-priority docs
-- [ ] Set up redirects from old locations
-- [ ] Validate all content
-- [ ] Train initial contributors
+### Phase 2: Content Setup (Week 1)
+- [ ] Review included example documents
+- [ ] Customize document templates for your organization
+- [ ] Create initial directory structure for your content
+- [ ] Set up team permissions and CODEOWNERS
+- [ ] Test CI/CD workflows
 
-### Phase 3: Adoption (Weeks 4-6)
-- [ ] Team training sessions
-- [ ] Create video tutorials
-- [ ] Document common workflows
-- [ ] Gather feedback
+### Phase 3: Content Migration (Weeks 2-3)
+- [ ] Migrate high-priority documentation
+- [ ] Convert existing content to Markdown format
+- [ ] Replace static diagrams with Mermaid where possible
+- [ ] Set up redirects from old documentation locations
+- [ ] Validate all links and content
 
-### Phase 4: Optimization (Ongoing)
-- [ ] Refine based on feedback
-- [ ] Automate repetitive tasks
-- [ ] Improve search and navigation
-- [ ] Measure adoption metrics
+### Phase 4: Team Adoption (Weeks 4-6)
+- [ ] Conduct team training sessions
+- [ ] Create organization-specific documentation workflows
+- [ ] Set up Obsidian for non-technical contributors
+- [ ] Document common processes and troubleshooting
+- [ ] Gather feedback and iterate
+
+### Phase 5: Optimization (Ongoing)
+- [ ] Monitor usage patterns and metrics
+- [ ] Refine templates and workflows based on feedback
+- [ ] Automate repetitive documentation tasks
+- [ ] Improve search, navigation, and discoverability
+- [ ] Keep template and tools updated
 
 ## Troubleshooting Guide
 
