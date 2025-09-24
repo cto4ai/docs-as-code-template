@@ -1,0 +1,35 @@
+# Generated files
+*.pdf
+*.docx
+*.html
+docs/exports/
+build/
+dist/
+site/
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+.history/
+
+# Dependency directories
+node_modules/
+venv/
+.env
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+.cache/
+
+# But track template PDFs
+!docs/templates/*.pdf
+!docs/external/*.pdf

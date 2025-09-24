@@ -1,0 +1,50 @@
+name: Initialize Template
+
+# Only runs once when repository is created from template
+on:
+  push:
+    branches: [main]
+
+jobs:
+  initialize:
+    if: github.repository != 'YOUR-ORG/docs-as-code-template'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Personalize repository
+        run: |
+          # This would run initialization automatically
+          # For now, we'll just create an issue reminding to run init
+          echo "Template initialization needed"
+      
+      - name: Create setup issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🚀 Initialize Documentation Repository',
+              body: `## Welcome to your new documentation repository!
+              
+              ### Next Steps
+              1. [ ] Run \`npm install\` to install dependencies
+              2. [ ] Run \`npm run init\` to personalize the template
+              3. [ ] Review and update README.md
+              4. [ ] Configure branch protection rules
+              5. [ ] Set up GitHub Pages (optional)
+              6. [ ] Delete example content in docs/
+              7. [ ] Close this issue when complete
+              
+              See [setup guide](.github/DOCUMENTATION/setup-guide.md) for detailed instructions.`
+            })
+      
+      - name: Delete this workflow
+        run: |
+          rm .github/workflows/init-template.yml
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Remove initialization workflow"
+          git push
