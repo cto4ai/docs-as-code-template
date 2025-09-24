@@ -1,104 +1,143 @@
-# {{COMPANY_NAME}} Documentation
+# 📚 Docs-as-Code Template
 
-Welcome to our centralized documentation repository. This repository contains all technical and operational documentation for {{COMPANY_NAME}}.
+> **Production-ready documentation system with GitHub Actions, automated testing, and modern tooling**
 
-## 📚 Quick Navigation
+[![Template](https://img.shields.io/badge/template-repository-green)](https://github.com/cto4ai/docs-as-code-template/generate)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+[![Docs as Code](https://img.shields.io/badge/docs--as--code-enabled-brightgreen)](https://www.writethedocs.org/guide/docs-as-code/)
 
-| Section | Description | Primary Audience |
-|---------|-------------|------------------|
-| [Policies](./docs/policies/) | Company policies and governance | All staff |
-| [Procedures](./docs/procedures/) | Standard operating procedures | Operations team |
-| [Architecture](./docs/architecture/) | System design and technical specs | Engineering |
-| [Guides](./docs/guides/) | How-to guides and tutorials | All technical staff |
-| [References](./docs/references/) | API docs, glossaries, references | Developers |
+This template provides everything you need to implement professional docs-as-code practices in your organization. Get a fully configured documentation repository in under 5 minutes with automated testing, multi-format publishing, and modern tooling.
 
-## 📖 Repository Documentation
+## ✨ What You Get
 
-- [How this repo is structured](./.github/DOCUMENTATION/setup-guide.md)
-- [Our docs-as-code approach](./.github/DOCUMENTATION/docs-as-code-strategy.md)
-- [Contributing guidelines](./CONTRIBUTING.md)
+When you use this template, you'll receive a **fully functional documentation repository** with:
 
-## 🚀 Getting Started
+### 🔄 **Automatic Setup** (2-3 minutes)
+- **Personalized content** with your repository and organization information
+- **Dependencies installed** and ready to use
+- **GitHub Actions configured** for validation and publishing
+- **Example content removed** and clean structure ready for your docs
+- **Setup issue created** with personalized next steps
 
-### Quick Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/{{GITHUB_ORG}}/{{REPO_NAME}}.git
-cd {{REPO_NAME}}
-
-# Install dependencies
-npm install
-
-# Run initialization (first time only)
-npm run init
-
-# Validate setup
-npm run test:setup
+### 📁 **Complete Structure**
+```
+your-new-docs-repo/
+├── docs/
+│   ├── policies/          # Policy documents
+│   ├── procedures/        # SOPs and runbooks
+│   ├── architecture/      # Technical documentation
+│   └── templates/         # Reusable document templates
+├── .github/
+│   ├── workflows/         # CI/CD for validation & publishing
+│   └── DOCUMENTATION/     # Meta-docs about the system
+└── scripts/               # Utility scripts for maintenance
 ```
 
-### For Non-Technical Contributors
+### 🚀 **Production Features**
+- **Markdown validation** with markdownlint
+- **Spell checking** with cspell
+- **Link validation** to prevent broken links
+- **Mermaid diagrams** for flowcharts and architecture
+- **PDF generation** for stakeholder sharing
+- **Multi-format publishing** (HTML, PDF, DOCX)
+- **Git LFS** pre-configured for binary assets
 
-If you prefer a graphical interface, you can use:
-- **GitHub Web Editor**: Edit files directly on GitHub.com
-- **Obsidian**: Download [Obsidian](https://obsidian.md) and open this repository as a vault
-- **VS Code**: Use [VS Code](https://code.visualstudio.com) with the Markdown Preview extension
+## 🎯 Quick Start
 
-## 🛠️ Available Commands
+### 1. Create Your Repository
+[![Use this template](https://img.shields.io/badge/Use_this_template-2ea44f?style=for-the-badge)](https://github.com/cto4ai/docs-as-code-template/generate)
 
-```bash
-npm run lint        # Fix markdown formatting issues
-npm run spell       # Check spelling
-npm run links       # Validate all links
-npm run validate    # Run all checks
-npm run serve       # Preview documentation locally
-npm run build:pdf   # Generate PDF versions
-```
+1. Click **"Use this template"** above
+2. Name your repository (e.g., `my-org-docs`, `product-documentation`)
+3. Choose public or private
+4. Click **"Create repository"**
 
-## 📝 Writing Documentation
+### 2. Automatic Initialization
+GitHub Actions will automatically:
+- ✅ Replace template variables with your repository information
+- ✅ Install dependencies and configure tools
+- ✅ Remove example content and template files
+- ✅ Create a setup issue with your personalized next steps
 
-### Quick Start
+### 3. Start Documenting
+Within minutes, you'll have a working documentation system ready for:
+- Writing policies, procedures, and technical docs
+- Collaborative review via pull requests
+- Automated validation and publishing
+- Professional documentation workflows
 
-1. Create a new `.md` file in the appropriate directory
-2. Use one of our [templates](./docs/templates/) as a starting point
-3. Follow our [style guide](./.github/DOCUMENTATION/docs-as-code-strategy.md#style-guide)
-4. Submit a pull request for review
+## 📋 What Gets Automated
 
-### Mermaid Diagrams
+| Feature | Template State | Your Repository |
+|---------|---------------|-----------------|
+| Repository name | `{{REPO_NAME}}` | `your-repo-name` |
+| Organization | `{{GITHUB_ORG}}` | `your-github-org` |
+| Company name | `{{COMPANY_NAME}}` | Auto-generated from repo name |
+| Contact info | Placeholders | Default values (customizable) |
+| Dependencies | Listed | Installed and ready |
+| Validation | Configured | Working immediately |
 
-We support Mermaid diagrams for flowcharts, sequence diagrams, and more:
+## 🛠️ Included Tools
+
+- **[markdownlint](https://github.com/DavidAnson/markdownlint)**: Consistent markdown formatting
+- **[cspell](https://cspell.org/)**: Spell checking with technical dictionaries
+- **[markdown-link-check](https://github.com/tcort/markdown-link-check)**: Validate all links
+- **[mermaid](https://mermaid.js.org/)**: Diagrams as code
+- **[pandoc](https://pandoc.org/)**: Multi-format document conversion
+- **GitHub Actions**: Automated testing and deployment
+
+## 📖 Documentation Philosophy
+
+This template implements **docs-as-code** principles:
+
+- 📝 **Documentation in version control** alongside source code
+- 🔍 **Peer review** via pull requests
+- 🤖 **Automated testing** to catch errors early
+- 🚀 **Continuous deployment** of updates
+- 📊 **Analytics and metrics** on documentation health
+- 🎯 **Single source of truth** for all organizational knowledge
+
+## 🏗️ Architecture
 
 ```mermaid
 graph LR
-    A[Write Docs] --> B[Submit PR]
-    B --> C[Review]
-    C --> D[Merge]
-    D --> E[Auto-Deploy]
+    A[Write Docs] --> B[Create PR]
+    B --> C{Automated Tests}
+    C -->|✅ Pass| D[Peer Review]
+    C -->|❌ Fail| E[Fix Issues]
+    E --> B
+    D --> F[Merge & Deploy]
+    F --> G[Published Docs]
+
+    style C fill:#e1f5fe
+    style F fill:#c8e6c9
+    style G fill:#c8e6c9
 ```
 
-## 🤝 Contributing
+## 🎯 Use Cases
 
-Please read our [Contributing Guidelines](./CONTRIBUTING.md) before submitting changes.
+Perfect for organizations that need:
 
-### Workflow
+- **Policy documentation** with approval workflows
+- **Technical documentation** with diagram support
+- **API documentation** with automated testing
+- **Runbooks and procedures** with version control
+- **Knowledge bases** with collaborative editing
+- **Multi-team documentation** with access controls
 
-1. **Branch**: Create a feature branch from `main`
-2. **Write**: Make your documentation changes
-3. **Test**: Run `npm run validate` locally
-4. **PR**: Submit a pull request
-5. **Review**: Address feedback from reviewers
-6. **Merge**: Once approved, your changes will be merged
+## 🤝 Contributing & Support
 
-## 📞 Support
-
-- **Slack**: {{SLACK_CHANNEL}}
-- **Email**: {{DOCS_EMAIL}}
-- **Issues**: [GitHub Issues](https://github.com/{{GITHUB_ORG}}/{{REPO_NAME}}/issues)
+- **Issues**: [Report bugs or request features](https://github.com/cto4ai/docs-as-code-template/issues)
+- **Discussions**: [Community support and ideas](https://github.com/cto4ai/docs-as-code-template/discussions)
+- **Documentation**: See [setup guide](.github/DOCUMENTATION/setup-guide.md) and [strategy doc](.github/DOCUMENTATION/docs-as-code-strategy.md)
 
 ## 📄 License
 
-This documentation is licensed under [CC BY-SA 4.0](./LICENSE.md).
+This template is provided under the [MIT License](LICENSE.md). You may choose any license for your documentation repository.
 
 ---
 
-*This repository uses the [docs-as-code](https://www.writethedocs.org/guide/docs-as-code/) approach. All documentation is version controlled, peer reviewed, and continuously deployed.*
+**Ready to implement professional documentation practices?**
+[**Use this template →**](https://github.com/cto4ai/docs-as-code-template/generate)
+
+*Built with ❤️ for the docs-as-code community*
