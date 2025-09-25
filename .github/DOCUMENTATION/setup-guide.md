@@ -22,7 +22,7 @@ Before using the template:
 This documentation system is available as a GitHub template. Instead of manual setup:
 
 1. **Use the Template**
-   - Go to the [docs-as-code-template](https://github.com/YOUR-ORG/docs-as-code-template) repository
+   - Go to the [docs-as-code-template](https://github.com/cto4ai/docs-as-code-template) repository
    - Click "Use this template" button
    - Choose "Create a new repository"
    - Name your repository following these conventions:
@@ -58,7 +58,7 @@ The GitHub Actions workflow automatically replaces template variables using your
 | `{{DOCS_EMAIL}}` | Default placeholder | "docs@example.com" |
 | `{{SLACK_CHANNEL}}` | Default placeholder | "#docs-help" |
 
-**Manual Customization**: If you need different values, you can manually edit these in your personalized repository or run `npm run init` for interactive customization.
+**Advanced Customization** (optional): The automatic setup provides sensible defaults. If you need different values, you can manually edit files in your personalized repository or run `npm run init` for interactive customization of all template variables.
 
 ## Included Configuration Files
 
@@ -330,7 +330,7 @@ After pushing your customized template:
 **GitHub Pages (Optional):**
 - Enable GitHub Pages in repository settings
 - Set source to GitHub Actions
-- Your site will be available at `https://YOUR-ORG.github.io/REPO-NAME`
+- Your site will be available at `https://[your-org].github.io/[repo-name]`
 
 ### 3. Content Migration Strategy
 

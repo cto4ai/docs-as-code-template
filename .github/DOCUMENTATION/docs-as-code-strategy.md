@@ -726,20 +726,23 @@ Include:
 
 ## Migration Checklist
 
-When converting existing documentation (see also: [Repository Setup Guide](./.github/DOCUMENTATION/setup-guide.md)):
+When converting existing documentation to this template-based repository (see also: [Repository Setup Guide](./.github/DOCUMENTATION/setup-guide.md)):
 
-- [ ] Export source content to plain text
-- [ ] Convert to Markdown format
+- [ ] Create repository from template (meta-documentation included automatically)
+- [ ] Wait for automatic initialization to complete
+- [ ] Export source content from existing systems to plain text
+- [ ] Convert content to Markdown format
 - [ ] Replace static diagrams with Mermaid where possible
-- [ ] Extract and optimize necessary images
-- [ ] Add front matter metadata
+- [ ] Extract and optimize necessary images (configure Git LFS if needed)
+- [ ] Add front matter metadata to documents
+- [ ] Organize content into appropriate template directories
 - [ ] Validate all internal links
-- [ ] Test output generation (PDF/DOCX)
+- [ ] Test output generation (PDF/DOCX) using included workflows
 - [ ] Peer review via pull request
-- [ ] Update index/navigation
+- [ ] Update navigation and index files
+- [ ] Set up redirects from old documentation locations
 - [ ] Archive legacy version
 - [ ] Notify stakeholders of new location
-- [ ] Copy meta-documentation to `.github/DOCUMENTATION/`
 
 ## FAQs
 
