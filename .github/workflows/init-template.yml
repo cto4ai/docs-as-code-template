@@ -47,6 +47,9 @@ jobs:
           # Clean up backup files
           find . -name "*.bak" -delete
 
+          # Replace template README with user README
+          mv USER_README.md README.md
+
           # Remove example content
           rm -rf docs/examples
 
