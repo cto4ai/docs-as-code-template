@@ -2,7 +2,7 @@
 
 ## Purpose
 
-[Brief description of what this procedure accomplishes]
+[Brief description of what this procedure accomplishes and how it benefits the team]
 
 ## Scope
 
