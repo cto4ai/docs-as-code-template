@@ -49,6 +49,7 @@ Applies to all employees, contractors, and third-party users with access to {{CO
 ## Compliance
 
 Violations may result in:
+
 - First offense: Written warning
 - Second offense: Suspension of access
 - Third offense: Termination
@@ -56,6 +57,7 @@ Violations may result in:
 ## Exceptions
 
 Exceptions must be:
+
 1. Documented with business justification
 2. Approved by Security Team and management
 3. Reviewed every 90 days

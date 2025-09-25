@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Read(//Users/jackivers/obsidian_vaults/primary/Crafty/Reusable Assets/docs-as-code/**)",
+      "WebFetch(domain:github.com)",
+      "Bash(bash:*)",
+      "Bash(npm run validate:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

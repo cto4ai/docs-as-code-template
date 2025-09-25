@@ -3,12 +3,15 @@
 > **Note**: This is an example procedure. Replace with your actual content.
 
 ## Purpose
+
 This procedure outlines the steps to safely deploy application changes to the production environment.
 
 ## Scope
+
 Applies to all production deployments for the {{COMPANY_NAME}} main application.
 
 ## Prerequisites
+
 - [ ] Changes approved via pull request
 - [ ] All tests passing in CI/CD pipeline
 - [ ] Deployment approved by team lead
@@ -97,12 +100,14 @@ npm run test:smoke:production
 
 1. Update JIRA ticket to "Deployed"
 2. Post in {{SLACK_CHANNEL}}:
-   ```
+
+   ```text
    ✅ Production deployment complete
    Version: X.Y.Z
    Ticket: DEPLOY-123
    Status: Successful
    ```
+
 3. Update the deployment log spreadsheet
 
 **Expected Result:** All stakeholders notified.
@@ -125,6 +130,7 @@ Run the full verification suite:
 ```
 
 Success criteria:
+
 - All health checks passing
 - Error rate < 0.1%
 - Response time < 200ms p95
@@ -145,11 +151,13 @@ curl https://api.{{COMPANY_NAME}}.com/version
 ```
 
 Then:
+
 1. Update JIRA ticket with rollback reason
 2. Notify team in {{SLACK_CHANNEL}}
 3. Schedule post-mortem
 
 ## Related Documents
+
 - [Deployment Policy](../policies/deployment-policy.md)
 - [Incident Response Procedure](./incident-response.md)
 - [Production Architecture](../architecture/production-architecture.md)
