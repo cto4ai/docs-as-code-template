@@ -18,6 +18,7 @@ Thumbs.db
 .idea/
 *.iml
 .history/
+.claude/
 
 # Logs
 logs
