@@ -99,12 +99,7 @@ jobs:
           if [[ -n $(git status --porcelain) ]]; then
             echo "Committing personalized changes..."
             git add -A
-            git commit -m "Initialize documentation repository from template
-
-- Replace template variables with repository information
-- Remove example content and template instructions
-- Set up basic configuration
-- Remove initialization workflow"
+            git commit -m "Initialize documentation repository from template - Replace template variables with repository information - Remove example content and template instructions - Set up basic configuration - Remove initialization workflow"
 
             echo "Pushing changes..."
             git push
